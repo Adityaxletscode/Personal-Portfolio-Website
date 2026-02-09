@@ -181,6 +181,11 @@
         font-size: 0.9rem;
         height: 45px;
     }
+    
+    /* Fix for image touching buttons on mobile */
+    .hero-image {
+        margin-top: 40px; /* Push image down away from buttons */
+    }
 }
 
 .hero-content h1 {
