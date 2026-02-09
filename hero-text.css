@@ -307,3 +307,24 @@
     }
 }
 
+
+/* Responsive overrides for H1 (Moved to end to override base styles) */
+@media (max-width: 1024px) {
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.4rem; /* Smaller for mobile */
+        max-width: 100%;
+        line-height: 1.2;
+    }
+}
