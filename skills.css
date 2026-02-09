@@ -1,0 +1,63 @@
+
+/* Skills Section Specifics */
+
+/* Inheriting global section padding and layout */
+
+/* Override default h2 margin for this section */
+#skills h2 {
+    margin-bottom: 1rem; /* Reduced from 1.5rem */
+}
+
+.skills-grid {
+    display: grid;
+    /* Even smaller cards to fit more in a row */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+    gap: 1rem; /* Reduced gap */
+    margin-top: 1rem;
+}
+
+.skill-category {
+    background: var(--card-bg);
+    padding: 1rem; /* Even smaller padding */
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    height: 100%; 
+}
+
+.skill-category:hover {
+    transform: translateY(-3px); /* Smaller lift */
+    border-color: var(--accent);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.skill-category h3 {
+    font-size: 1rem; /* Smaller, more compact font */
+    margin-bottom: 0.6rem; /* Minimal margin */
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.skill-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem; /* Tighter gap */
+}
+
+.skill-item {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 0.2rem 0.6rem; /* Very compact padding */
+    border-radius: 4px; /* Slightly less rounded corners for a cleaner tech look */
+    font-size: 0.8rem; /* Small, readable font */
+    color: var(--text-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
+    cursor: default;
+}
+
+.skill-item:hover {
+    background: rgba(56, 189, 248, 0.1); 
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-1px);
+}

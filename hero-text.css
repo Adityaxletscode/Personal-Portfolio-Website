@@ -1,0 +1,309 @@
+/* Hero Text Enhancements */
+.hero-content {
+    margin-top: -60px; /* Moved up significantly */
+}
+
+.hero-image {
+    margin-top: -20px; /* Moved down relative to text */
+}
+/* ... existing styles ... */
+
+
+.hero-content h1 {
+    font-size: 3rem; /* Slightly smaller to ensure fit */
+/* ... existing styles ... */
+    white-space: nowrap; 
+/* ... existing styles ... */
+}
+
+/* ... existing keyframes ... */
+
+.hero-content .roles-container {
+    font-size: 0.3rem; /* Tiny font size as requested */
+    color: var(--text-secondary);
+    margin-top: 5px; /* Minimal gap */
+    font-weight: 500;
+    display: flex;
+    flex-wrap: nowrap; /* Force single line */
+    white-space: nowrap; /* Prevent breaking */
+    gap: 8px; /* Tighter gap */
+    align-items: center;
+}
+
+.hero-content .role-item {
+    color: var(--text-secondary);
+}
+
+.hero-content .separator {
+    color: var(--accent);
+    font-weight: bold;
+}
+
+/* Hero Buttons */
+.hero-buttons {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row; /* Force row layout */
+    flex-wrap: nowrap; /* Prevent wrapping */
+    gap: 20px; /* Increased gap */
+    align-items: center;
+}
+
+.hero-buttons .btn {
+    margin-top: 0; /* Reset alignment */
+}
+
+.btn, .btn-outline {
+    display: inline-flex; /* Use flex to align icon and text */
+    align-items: center;
+    justify-content: center;
+    padding: 12px 30px;
+    border-radius: 50px; /* Same border radius */
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    height: 50px; /* Force same height */
+    box-sizing: border-box;
+    border: 2px solid transparent; /* Reserve space for border */
+}
+
+.btn-download::before {
+    content: '↓'; /* Download arrow */
+    margin-right: 8px;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.btn-download:hover {
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+    transform: translateY(-2px);
+    background: transparent; /* Invert color */
+    color: var(--accent); /* Text becomes accent color */
+    border: 2px solid var(--accent); /* Add border to match outline style */
+    padding: 10px 28px; /* Adjust padding to account for 2px border so size stays same */
+}
+
+/* Ensure default state has border to avoid layout shift on hover? 
+   Better yet, give it a transparent border by default. 
+   But .btn usually has no border.
+   Let's add border to base .btn class or handle it here.
+*/
+
+.btn-outline {
+    border: 2px solid var(--accent);
+    color: var(--accent);
+}
+
+.btn-outline:hover {
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+}
+
+
+/* Responsive adjustment if screen is too narrow */
+@media (max-width: 1024px) {
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-content .roles-container {
+        white-space: nowrap; 
+        flex-wrap: nowrap;
+        justify-content: center;
+        font-size: 0.9rem; /* Slightly smaller on tablets */
+    }
+    
+    .hero-buttons {
+        justify-content: center; 
+        width: 100%;
+    }
+    
+    .hero-content {
+        margin-top: 0;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.2rem;
+    }
+    
+    .hero-content .roles-container {
+        flex-wrap: wrap; /* Allow wrapping on mobile */
+        justify-content: center;
+        white-space: normal; /* Allow text to wrap */
+        font-size: 0.9rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column; /* Stack buttons on mobile */
+        gap: 15px;
+    }
+    
+    .btn, .btn-outline {
+        width: 100%; /* Full width buttons */
+        max-width: 300px; /* But not too wide */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.8rem; /* Fit on very small screens */
+    }
+    
+    .hero-content .highlight {
+        font-size: 2rem;
+    }
+    
+    .hero-content .roles-container {
+        font-size: 0.8rem;
+        gap: 5px;
+    }
+    
+    .role-item {
+        display: block;
+        width: 100%; /* Stack roles vertically if needed */
+        margin-bottom: 2px;
+    }
+    
+    .separator {
+        display: none; /* Hide separator when stacking */
+    }
+    
+    .btn, .btn-outline {
+        padding: 10px 15px; 
+        font-size: 0.9rem;
+        height: 45px;
+    }
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 0px; 
+    background: linear-gradient(to right, #f8fafc, #94a3b8);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* Layout stability */
+    width: fit-content;
+    white-space: nowrap; 
+    margin: 0 auto; 
+    
+    /* Reveal effect using clip-path to prevent layout shift */
+    clip-path: inset(0 100% 0 0); /* Start hidden */
+    animation: typing-reveal 6s steps(30, end) infinite;
+    
+    border-right: none; /* No cursor as requested */
+    display: inline-block;
+    max-width: 100%;
+}
+
+/* Typing animation using clip-path so layout size stays constant */
+@keyframes typing-reveal {
+  0% { clip-path: inset(0 100% 0 0); }
+  40% { clip-path: inset(0 0 0 0); }       /* Typed */
+  60% { clip-path: inset(0 0 0 0); }       /* Wait */
+  90% { clip-path: inset(0 100% 0 0); }    /* Deleted */
+  100% { clip-path: inset(0 100% 0 0); }   /* Wait */
+}
+
+/* Removed old blink-caret keyframes */
+
+/* Removed old blink-caret keyframes */
+
+.hero-content h2 {
+    font-size: 1.5rem;
+    margin-top: 5px; 
+    margin-bottom: 0px; 
+    color: var(--text-primary);
+    font-weight: 600;
+    white-space: nowrap; /* Prevent wrapping */
+}
+
+.hero-content .highlight {
+    color: var(--accent);
+    position: relative;
+    display: inline-block;
+    white-space: nowrap; /* Prevent wrapping */
+}
+
+/* Larger styling for the name */
+.hero-content .hero-name {
+    font-size: 3rem; /* Significantly larger */
+    margin-top: 5px;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    display: block; /* Ensure it starts on a new line effectively */
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .hero-content .hero-name {
+        font-size: 2.2rem; /* Responsive sizing */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content .hero-name {
+        font-size: 1.8rem;
+    }
+}
+
+.hero-content h2::after {
+    display: none; 
+}
+
+.hero-content .roles-container {
+    font-size: 1.1rem; /* Slightly smaller base size */
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+    font-weight: 500;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: nowrap; /* Force single line */
+    white-space: nowrap; /* Prevent text wrapping */
+    justify-content: flex-start; /* Align left by default */
+}
+
+@media (max-width: 1024px) {
+    .hero-content .roles-container {
+        justify-content: center; /* Center on smaller screens */
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content .roles-container {
+        font-size: 0.75rem; /* Smaller to fit single line */
+        white-space: nowrap;
+        flex-wrap: nowrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content .roles-container {
+        font-size: 0.55rem; /* Very small to fit single line on mobile */
+        gap: 5px;
+    }
+    
+    .separator {
+        display: inline-block; /* Ensure separator is visible */
+        margin: 0 2px;
+    }
+    
+    .role-item {
+        display: inline-block;
+        width: auto;
+        margin-bottom: 0;
+    }
+}
+

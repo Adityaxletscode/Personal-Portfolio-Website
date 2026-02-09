@@ -1,0 +1,117 @@
+
+/* About Section Styling */
+
+.about-content {
+    display: flex;
+    align-items: flex-start; /* Aligns items to the top */
+    justify-content: space-between;
+    gap: 4rem;
+    margin-top: 2rem;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.about-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Ensures image container aligns top */
+    position: relative;
+    padding-top: 10px; /* slight offset */
+}
+
+.about-image img {
+    width: 350px; /* Adjust as needed */
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(56, 189, 248, 0.1);
+    transition: all 0.5s ease;
+    animation: gentleFloat 8s ease-in-out infinite; /* Slower, more complex animation */
+    z-index: 2;
+}
+
+/* Hover Effect */
+.about-image img:hover {
+    transform: scale(1.05) rotate(0deg); /* Reset rotation on hover for clarity */
+    box-shadow: 0 30px 60px rgba(56, 189, 248, 0.3);
+    border-color: var(--accent);
+}
+
+/* Background blob for extra flair */
+.about-image::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, transparent 70%);
+    top: 40%; /* Moved up slightly */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    animation: pulseGlow 5s infinite alternate;
+}
+
+/* Animations */
+@keyframes gentleFloat {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    33% {
+        transform: translateY(-10px) rotate(2deg);
+    }
+    66% {
+        transform: translateY(5px) rotate(-1deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+@keyframes pulseGlow {
+    0% {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .about-content {
+        flex-direction: column;
+        gap: 3rem;
+        text-align: center;
+    }
+
+    .about-image {
+        order: -1; /* Image on top on mobile if desired, or remove to keep at bottom */
+    }
+    
+    .about-text p {
+        text-align: justify; /* Or center, depending on preference */
+    }
+}
+
+@media (max-width: 768px) {
+    .about-image img {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .about-text p {
+        text-align: left; /* Better for reading on small screens */
+    }
+}

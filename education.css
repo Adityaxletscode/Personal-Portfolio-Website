@@ -1,0 +1,12 @@
+
+/* Education Section styles */
+.edu-score {
+    color: var(--accent);
+    font-weight: 600;
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.timeline-item p {
+    margin-bottom: 0.2rem;
+}
