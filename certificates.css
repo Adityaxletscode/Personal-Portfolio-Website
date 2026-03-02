@@ -1,9 +1,12 @@
-/* Certificates Section */
 .certificate-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly smaller min-width */
     gap: 2rem;
     margin-top: 2rem;
+}
+
+#certificates {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 @media (max-width: 480px) {
